@@ -1,0 +1,279 @@
+package img;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.AffineTransform;
+//import java.awt.event.WindowEvent;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+//import aclock.TestRotateImage;
+//import aclock.TestRotateImage.TestPane;
+
+public class vor {
+
+	private JFrame frame;
+	private JTextField Desired;
+	private int num1;
+	private int Answer;
+	private int spinnerValue;
+	private JTextField Ans;
+	private JTextField Direction;
+    private int deflection = 5;
+    private JTextField test;
+
+    /**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					vor window = new vor();
+					window.frame.setVisible(true);
+
+			        new TestRotateImage();
+
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public vor() {
+		initialize();
+ 	}
+
+
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 396, 381);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		Desired = new JTextField();
+		Desired.setHorizontalAlignment(SwingConstants.RIGHT);
+		Desired.setFont(new Font("Tahoma", Font.BOLD, 20));
+		Desired.setBounds(223, 29, 123, 50);
+		frame.getContentPane().add(Desired);
+		Desired.setColumns(10);
+		
+		JSpinner ActualVspinner = new JSpinner();
+		ActualVspinner.setFont(new Font("Tahoma", Font.BOLD, 20));
+		ActualVspinner.setModel(new SpinnerNumberModel(0, 0, 360, 1));
+		ActualVspinner.setBounds(223, 186, 123, 44);
+		frame.getContentPane().add(ActualVspinner);
+		
+		Ans = new JTextField();
+		Ans.setBounds(42, 61, 114, 44);
+		frame.getContentPane().add(Ans);
+		Ans.setColumns(10);
+				
+		Direction = new JTextField();
+		Direction.setBounds(42, 186, 114, 44);
+		frame.getContentPane().add(Direction);
+		Direction.setColumns(10);
+
+		test = new JTextField();
+		test.setFont(new Font("Tahoma", Font.BOLD, 20));
+		test.setBounds(42, 267, 114, 33);
+		frame.getContentPane().add(test);
+		test.setColumns(10);
+		
+		JButton set = new JButton("Set");
+		set.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				num1=Integer.parseInt(Desired.getText());
+				if(num1 <0 || num1>360)
+				{
+					JOptionPane.showMessageDialog(null, "Enter a Valid Radial (In Range of 0-360)");
+				}
+				else{
+				spinnerValue=(Integer)ActualVspinner.getValue();
+				String turnDirection = null;
+				if(num1 > spinnerValue)
+				{
+					Answer = num1-spinnerValue;
+					if(Answer > 180)
+					{
+						Answer = 360-Answer;
+						turnDirection = "Left";
+					}
+					else
+					{
+						turnDirection = "Right";
+					}
+				}
+				else if(num1 < spinnerValue)
+					{
+						Answer = spinnerValue-num1;
+						if(Answer > 180)
+						{
+							Answer = 360-Answer;
+							turnDirection = "Right";
+						}
+						else
+						{
+							turnDirection = "Left";
+						}
+					}
+				else if(num1 == spinnerValue){
+					Answer = 0;
+					turnDirection = "";
+				}
+				
+					if(Answer > 5){
+						deflection = 5;
+					}
+					else{
+						deflection = Answer;
+					}
+					if(turnDirection == "Left"){
+						deflection = deflection * -1;
+					}				
+					deflection = deflection +5;
+/*
+ * 				
+ */
+				Ans.setText(Integer.toString(Answer));
+				Direction.setText(turnDirection);
+//				Ans.setText(Integer.toString(Answer));
+				test.setText(Integer.toString(deflection));
+				
+				EventQueue.invokeLater(new Runnable() {
+			            @Override
+			            public void run() {
+			                try {
+			                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			                } catch (Exception ex) {
+			                }
+
+			                JFrame frame = new JFrame("Test");
+			                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			                frame.getContentPane().add(new dial());
+			                frame.pack();
+			                frame.setLocationRelativeTo(null);
+			                frame.setVisible(true);
+			            }
+			        });
+				}		
+		}
+		});
+		set.setBounds(223, 109, 123, 48);
+		frame.getContentPane().add(set);
+		
+		JButton Calculate = new JButton("New button");
+		Calculate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			
+				Answer=Integer.parseInt(Ans.getText());
+			}
+		});
+		Calculate.setBounds(242, 279, 89, 23);
+		frame.getContentPane().add(Calculate);
+		
+		JLabel lblDirection = new JLabel("Direction");
+		lblDirection.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblDirection.setBounds(42, 148, 114, 33);
+		frame.getContentPane().add(lblDirection);
+		
+		JLabel lblTurnRadian = new JLabel("Turn Radian");
+		lblTurnRadian.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblTurnRadian.setBounds(42, 29, 140, 32);
+		frame.getContentPane().add(lblTurnRadian);
+		
+	}
+
+	public class dial extends JPanel {
+        private BufferedImage bi = null;
+        private BufferedImage bi2 = null;
+        JLabel picLabel = null;
+        protected int dialAngle = num1;
+        protected int dialAngle2 = deflection;
+
+        //        protected int dialAngle2 = deflection;
+        
+        
+        public dial() {
+        	
+            setLayout(new BorderLayout());
+
+ //           rectangle = new Rectangle(0, 0, 80, 100);
+ 
+    		try {
+    			
+    			bi = ImageIO.read(new File("C:\\\\Users\\\\tejas\\\\Desktop\\\\VOR.png"));
+    			bi2 = ImageIO.read(new File("C:\\\\Users\\\\tejas\\\\Desktop\\\\arrow.png"));
+  
+    			//                Image = Image.getInstance(url);
+    			
+//    			bi2.setAbsolutePosition(170, 250);
+    			
+    		} catch (IOException e) {
+    			e.printStackTrace();
+    		}
+/*
+    		picLabel = new JLabel(new ImageIcon(bi));
+    		add(picLabel);
+    	    repaint();
+ */       }
+		
+        @Override
+        public Dimension getPreferredSize() {
+            return new Dimension(bi.getWidth(), bi.getHeight());
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Graphics2D g2 = (Graphics2D) g;
+            g2.rotate(Math.toRadians(dialAngle), bi.getWidth() / 2, bi.getHeight() / 2);
+            g2.drawImage(bi, 0, 0, null);
+            
+            Graphics2D g2d = (Graphics2D) g.create();
+            g2d.setColor(Color.RED);
+            g2d.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight());
+     
+
+            
+            g2d.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2);
+
+            Graphics2D g3 = (Graphics2D) g;
+            g3.rotate(Math.toRadians((deflection-5)*5));
+//            g3.drawImage(bi2, 0, 0, 10,600,this);
+            g3.drawImage(bi2, (bi.getWidth() / 2)-4,  0, 6,1000,this);
+            
+        }
+    }
+}
