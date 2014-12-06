@@ -25,9 +25,19 @@ import javax.swing.UIManager;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+public class vor {
+
+	private JFrame frame;
+	private JTextField Desired;
+	private int num1;
+	private int Answer;
+	private int spinnerValue;
+	private JTextField Ans;
+	private JTextField Direction;
+    private int deflection = 5;
 
 
-
+}
 public class vor {
 
 	private JFrame frame;
