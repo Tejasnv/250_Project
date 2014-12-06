@@ -188,33 +188,36 @@ private void initialize() {
 			}
 		});
 		
+		
+		
     /***************************
 
-
-		set.setBounds(223, 109, 123, 48);
+		set.setBounds(223, 263, 123, 48);
 		frame.getContentPane().add(set);
-		
-		JButton Calculate = new JButton("New button");
-		Calculate.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			
-				Answer=Integer.parseInt(Ans.getText());
-			}
-		});
-		Calculate.setBounds(242, 279, 89, 23);
-		frame.getContentPane().add(Calculate);
 		
 		JLabel lblDirection = new JLabel("Direction");
 		lblDirection.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblDirection.setBounds(42, 148, 114, 33);
+		lblDirection.setBounds(52, 145, 97, 33);
 		frame.getContentPane().add(lblDirection);
 		
-		JLabel lblTurnRadian = new JLabel("Turn Radian");
+		JLabel lblTurnRadian = new JLabel("Turn by Radial");
+		lblTurnRadian.setBackground(UIManager.getColor("TextField.inactiveBackground"));
 		lblTurnRadian.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblTurnRadian.setBounds(42, 29, 140, 32);
+		lblTurnRadian.setBounds(25, 30, 165, 32);
 		frame.getContentPane().add(lblTurnRadian);
 		
+		JLabel lblDesiredRadial = new JLabel("Desired Radial");
+		lblDesiredRadial.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblDesiredRadial.setBounds(215, 30, 155, 32);
+		frame.getContentPane().add(lblDesiredRadial);
+		
+		JLabel lblCurrentRadial = new JLabel("Current Radial");
+		lblCurrentRadial.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblCurrentRadial.setBounds(215, 145, 155, 32);
+		frame.getContentPane().add(lblCurrentRadial);
+		
 	}
+
 
 	public class dial extends JPanel {
         private BufferedImage bi = null;
