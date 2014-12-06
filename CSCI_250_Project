@@ -36,11 +36,9 @@ public class vor {
 	private JTextField Direction;
     private int deflection = 5;
 
-
-
-    /**
+/**
 	 * Launch the application.
-	 */
+ */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -56,6 +54,9 @@ public class vor {
 			}
 		});
 	}
+
+
+    /***************************
 
 	/**
 	 * Create the application.
