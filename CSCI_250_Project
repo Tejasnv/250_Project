@@ -62,123 +62,135 @@ public class vor {
 		initialize();
  	}
 
-    /***************************
-
-	private void initialize() {
+private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 396, 381);
+		frame.setBounds(100, 100, 413, 381);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.setBackground(Color.RED);
 		
 		Desired = new JTextField();
+		Desired.setText("0");
 		Desired.setHorizontalAlignment(SwingConstants.RIGHT);
-		Desired.setFont(new Font("Tahoma", Font.BOLD, 20));
-		Desired.setBounds(223, 29, 123, 50);
+		Desired.setFont(new Font("Tahoma", Font.BOLD, 30));
+		Desired.setBounds(223, 61, 123, 44);
 		frame.getContentPane().add(Desired);
 		Desired.setColumns(10);
 		
 		JSpinner ActualVspinner = new JSpinner();
-		ActualVspinner.setFont(new Font("Tahoma", Font.BOLD, 20));
+		ActualVspinner.setFont(new Font("Tahoma", Font.BOLD, 30));
 		ActualVspinner.setModel(new SpinnerNumberModel(0, 0, 360, 1));
-		ActualVspinner.setBounds(223, 186, 123, 44);
+		ActualVspinner.setBounds(223, 178, 123, 44);
 		frame.getContentPane().add(ActualVspinner);
 		
 		Ans = new JTextField();
+		Ans.setBackground(UIManager.getColor("TextField.inactiveBackground"));
+		Ans.setHorizontalAlignment(SwingConstants.CENTER);
+		Ans.setFont(new Font("Tahoma", Font.BOLD, 30));
+		Ans.setForeground(Color.BLACK);
 		Ans.setBounds(42, 61, 114, 44);
 		frame.getContentPane().add(Ans);
 		Ans.setColumns(10);
+		Ans.setEditable(false);
 				
 		Direction = new JTextField();
-		Direction.setBounds(42, 186, 114, 44);
+		Direction.setBackground(UIManager.getColor("TextField.inactiveBackground"));
+		Direction.setHorizontalAlignment(SwingConstants.CENTER);
+		Direction.setFont(new Font("Tahoma", Font.BOLD, 25));
+		Direction.setBounds(42, 178, 114, 44);
 		frame.getContentPane().add(Direction);
+		Direction.setEditable(false);
 		Direction.setColumns(10);
-
-		test = new JTextField();
-		test.setFont(new Font("Tahoma", Font.BOLD, 20));
-		test.setBounds(42, 267, 114, 33);
-		frame.getContentPane().add(test);
-		test.setColumns(10);
 		
-		JButton set = new JButton("Set");
+	JButton set = new JButton("Set");
+		set.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 30));
 		set.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				try{
+					num1=Integer.parseInt(Desired.getText());
+	
 
-				num1=Integer.parseInt(Desired.getText());
-				if(num1 <0 || num1>360)
-				{
-					JOptionPane.showMessageDialog(null, "Enter a Valid Radial (In Range of 0-360)");
-				}
-				else{
-				spinnerValue=(Integer)ActualVspinner.getValue();
-				String turnDirection = null;
-				if(num1 > spinnerValue)
-				{
-					Answer = num1-spinnerValue;
-					if(Answer > 180)
+					if(num1 <0 || num1>360)
 					{
-						Answer = 360-Answer;
-						turnDirection = "Left";
+						JOptionPane.showMessageDialog(null, "Enter a Valid Radial (In Range of 0-360)");
 					}
-					else
+					else{
+					spinnerValue=(Integer)ActualVspinner.getValue();
+					String turnDirection = null;
+					if(num1 > spinnerValue)
 					{
-						turnDirection = "Right";
-					}
-				}
-				else if(num1 < spinnerValue)
-					{
-						Answer = spinnerValue-num1;
+						Answer = num1-spinnerValue;
 						if(Answer > 180)
 						{
 							Answer = 360-Answer;
-							turnDirection = "Right";
+							turnDirection = "Left";
 						}
 						else
 						{
-							turnDirection = "Left";
+							turnDirection = "Right";
 						}
 					}
-				else if(num1 == spinnerValue){
-					Answer = 0;
-					turnDirection = "";
+					else if(num1 < spinnerValue)
+						{
+							Answer = spinnerValue-num1;
+							if(Answer > 180)
+							{
+								Answer = 360-Answer;
+								turnDirection = "Right";
+							}
+							else
+							{
+								turnDirection = "Left";
+							}
+						}
+					else if(num1 == spinnerValue){
+						Answer = 0;
+						turnDirection = "";
+					}
+					
+						if(Answer > 5){
+							deflection = 5;
+						}
+						else{
+							deflection = Answer;
+						}
+						if(turnDirection == "Left"){
+							deflection = deflection * -1;
+						}				
+						deflection = deflection +5;
+			/*
+			 * 				
+			 */
+					Ans.setText(Integer.toString(Answer));
+					Direction.setText(turnDirection);
+					
+					EventQueue.invokeLater(new Runnable() {
+				            @Override
+				            public void run() {
+				                try {
+				                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+				                } catch (Exception ex) {
+				                }
+			
+				                JFrame frame = new JFrame("Test");
+				                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				                frame.getContentPane().add(new dial());
+				                frame.pack();
+				                frame.setLocationRelativeTo(null);
+				                frame.setVisible(true);
+				            }
+				        });
+					}		
 				}
-				
-					if(Answer > 5){
-						deflection = 5;
-					}
-					else{
-						deflection = Answer;
-					}
-					if(turnDirection == "Left"){
-						deflection = deflection * -1;
-					}				
-					deflection = deflection +5;
-/*
- * 				
- */
-				Ans.setText(Integer.toString(Answer));
-				Direction.setText(turnDirection);
-//				Ans.setText(Integer.toString(Answer));
-				test.setText(Integer.toString(deflection));
-				
-				EventQueue.invokeLater(new Runnable() {
-			            @Override
-			            public void run() {
-			                try {
-			                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-			                } catch (Exception ex) {
-			                }
-
-			                JFrame frame = new JFrame("Test");
-			                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			                frame.getContentPane().add(new dial());
-			                frame.pack();
-			                frame.setLocationRelativeTo(null);
-			                frame.setVisible(true);
-			            }
-			        });
-				}		
-		}
+				catch(Exception e){
+					JOptionPane.showMessageDialog(null, "Enter a Valid Number");
+				}
+			}
 		});
+		
+    /***************************
+
+
 		set.setBounds(223, 109, 123, 48);
 		frame.getContentPane().add(set);
 		
