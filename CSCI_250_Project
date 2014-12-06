@@ -55,16 +55,14 @@ public class vor {
 		});
 	}
 
-
-    /***************************
-
-	/**
+/**
 	 * Create the application.
-	 */
+ */
 	public vor() {
 		initialize();
  	}
 
+    /***************************
 
 	private void initialize() {
 		frame = new JFrame();
