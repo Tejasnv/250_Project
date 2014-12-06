@@ -16,7 +16,6 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-//testing
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -271,7 +270,7 @@ public class vor {
 
             Graphics2D g3 = (Graphics2D) g;
             g3.rotate(Math.toRadians((deflection-5)*5));
-//            g3.drawImage(bi2, 0, 0, 10,300,this);
+//            g3.drawImage(bi2, 0, 0, 10,1000,this);
             g3.drawImage(bi2, (bi.getWidth() / 2)-4,  0, 6,1000,this);
             
         }
