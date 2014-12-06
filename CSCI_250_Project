@@ -209,12 +209,7 @@ private void initialize() {
 		lblCurrentRadial.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblCurrentRadial.setBounds(215, 145, 155, 32);
 		frame.getContentPane().add(lblCurrentRadial);
-		
 	}
-
-
-		
-    /***************************
 
 @SuppressWarnings("serial")
 	public class dial extends JPanel {
