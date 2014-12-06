@@ -270,7 +270,7 @@ public class vor {
 
             Graphics2D g3 = (Graphics2D) g;
             g3.rotate(Math.toRadians((deflection-5)*5));
-//            g3.drawImage(bi2, 0, 0, 10,1000,this);
+//            g3.drawImage(bi2, 0, 0, 10,600,this);
             g3.drawImage(bi2, (bi.getWidth() / 2)-4,  0, 6,1000,this);
             
         }
