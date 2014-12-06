@@ -188,10 +188,6 @@ private void initialize() {
 			}
 		});
 		
-		
-		
-    /***************************
-
 		set.setBounds(223, 263, 123, 48);
 		frame.getContentPane().add(set);
 		
@@ -219,39 +215,27 @@ private void initialize() {
 	}
 
 
+		
+    /***************************
+
+@SuppressWarnings("serial")
 	public class dial extends JPanel {
         private BufferedImage bi = null;
         private BufferedImage bi2 = null;
         JLabel picLabel = null;
         protected int dialAngle = num1;
         protected int dialAngle2 = deflection;
-
-        //        protected int dialAngle2 = deflection;
-        
         
         public dial() {
         	
             setLayout(new BorderLayout());
-
- //           rectangle = new Rectangle(0, 0, 80, 100);
- 
     		try {
-    			
-    			bi = ImageIO.read(new File("C:\\\\Users\\\\tejas\\\\Desktop\\\\VOR.png"));
-    			bi2 = ImageIO.read(new File("C:\\\\Users\\\\tejas\\\\Desktop\\\\arrow.png"));
-  
-    			//                Image = Image.getInstance(url);
-    			
-//    			bi2.setAbsolutePosition(170, 250);
-    			
+    			bi = ImageIO.read(new File("C:\\\\MyPrograms\\\\workspace\\\\VOR\\\\src\\\\Images\\\\VORdiel.png"));
+    			bi2 = ImageIO.read(new File("C:\\\\MyPrograms\\\\workspace\\\\VOR\\\\src\\\\Images\\\\arrow.png"));
     		} catch (IOException e) {
     			e.printStackTrace();
     		}
-/*
-    		picLabel = new JLabel(new ImageIcon(bi));
-    		add(picLabel);
-    	    repaint();
- */       }
+       }
 		
         @Override
         public Dimension getPreferredSize() {
@@ -266,18 +250,32 @@ private void initialize() {
             g2.drawImage(bi, 0, 0, null);
             
             Graphics2D g2d = (Graphics2D) g.create();
-            g2d.setColor(Color.RED);
+            Graphics2D g3d = (Graphics2D) g.create();
+            
+            g2d.setColor(Color.YELLOW);
             g2d.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight());
-     
-
+            g2d.drawLine(143, 160, 143, getHeight()/3);
+            g2d.drawLine(126, 160, 126, getHeight()/3);
+            g2d.drawLine(109, 160, 109, getHeight()/3);
+            g2d.drawLine(92, 160, 92, getHeight()/3);
+            g2d.drawLine(75, 160, 75, getHeight()/3);
+        
+            g2d.drawLine(178, 160, 178, getHeight()/3);
+            g2d.drawLine(195, 160, 195, getHeight()/3);
+            g2d.drawLine(212, 160, 212, getHeight()/3);
+            g2d.drawLine(228, 160, 228, getHeight()/3);
+            g2d.drawLine(245, 160, 245, getHeight()/3);
             
-            g2d.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2);
-
+            g3d.setColor(Color.RED);
+            g3d.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2);
+            
             Graphics2D g3 = (Graphics2D) g;
-            g3.rotate(Math.toRadians((deflection-5)*5));
-//            g3.drawImage(bi2, 0, 0, 10,600,this);
-            g3.drawImage(bi2, (bi.getWidth() / 2)-4,  0, 6,1000,this);
-            
+            g3.rotate(Math.toRadians((deflection-5)*2), bi.getWidth(), bi.getHeight()*2);
+            g3.drawImage(bi2, (bi.getWidth() / 2),  -50, 4,1000,this);
+//          g3.rotate(Math.toRadians((deflection-5)*5));
+//          g3.drawImage(bi2, (bi.getWidth() / 2)-4, 0, 6,1000,this);
         }
     }
+//*******************************************************	
+	
 }
