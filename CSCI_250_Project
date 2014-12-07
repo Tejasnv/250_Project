@@ -257,7 +257,7 @@ private void initialize() {
             g2d.drawLine(195, 160, 195, getHeight()/3);
             g2d.drawLine(212, 160, 212, getHeight()/3);
             g2d.drawLine(228, 160, 228, getHeight()/3);
-            g2d.drawLine(230, 160, 245, getHeight()/3);
+            g2d.drawLine(245, 160, 245, getHeight()/3);
             
             g3d.setColor(Color.RED);
             g3d.drawLine(0, getHeight() / 2, getWidth(), getHeight() / 2);
