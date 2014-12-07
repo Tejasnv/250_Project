@@ -110,7 +110,7 @@ private void initialize() {
 
 					if(num1 <0 || num1>360)
 					{
-						JOptionPane.showMessageDialog(null, "Enter a Valid Radial");
+						JOptionPane.showMessageDialog(null, "Enter a Valid Radial  (In Range of 0-360)");
 					}
 					else{
 					spinnerValue=(Integer)ActualVspinner.getValue();
