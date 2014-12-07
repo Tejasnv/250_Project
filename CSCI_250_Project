@@ -23,6 +23,7 @@ import javax.swing.UIManager;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Transparency;
+import java.awt.GraphicsConfiguration;
 
 public class vor {
 
