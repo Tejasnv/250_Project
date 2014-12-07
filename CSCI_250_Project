@@ -265,7 +265,6 @@ private void initialize() {
             Graphics2D g3 = (Graphics2D) g;
             g3.rotate(Math.toRadians((deflection-5)*2), bi.getWidth(), bi.getHeight()*2);
             g3.drawImage(bi2, (bi.getWidth() / 2),  -50, 4,1000,this);
-//          g3.rotate(Math.toRadians((deflection-5)*5));
         }
     }
 }
