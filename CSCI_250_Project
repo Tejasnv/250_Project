@@ -213,7 +213,7 @@ private void initialize() {
 
 @SuppressWarnings("serial")
 	public class dial extends JPanel {
-        private BufferedImage bi1 = null;
+        private BufferedImage bi = null;
         private BufferedImage bi2 = null;
         JLabel picLabel = null;
         protected int dialAngle = num1;
