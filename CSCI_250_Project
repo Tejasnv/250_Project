@@ -88,7 +88,7 @@ private void initialize() {
 		Ans.setForeground(Color.BLACK);
 		Ans.setBounds(42, 61, 114, 44);
 		frame.getContentPane().add(Ans);
-		Ans.setColumns(12);
+		Ans.setColumns(10);
 		Ans.setEditable(false);
 				
 		Direction = new JTextField();
