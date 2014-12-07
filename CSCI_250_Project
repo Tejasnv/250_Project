@@ -39,9 +39,7 @@ public class vor {
 //        private JSpinner spinner;
 //	private JNumberField spinner;
 
-/**
-	 * Launch the application.
- */
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
