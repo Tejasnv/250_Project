@@ -37,9 +37,6 @@ public class vor {
 	private JTextField Direction;
         private int deflection = 5;
 
-//	private JNumberField spinner;
-
-
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
