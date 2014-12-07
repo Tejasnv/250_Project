@@ -230,10 +230,10 @@ private void initialize() {
     		}
        }
 		
-        @Override
+       /* @Override
         public Dimension getPreferredSize() {
             return new Dimension(bi.getWidth(), bi.getHeight());
-        }
+        } */
 
         @Override
         protected void paintComponent(Graphics g) {
