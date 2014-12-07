@@ -32,7 +32,7 @@ public class vor {
 	private int spinnerValue;
 	private JTextField Ans;
 	private JTextField Direction;
-        private int deflection = 5;
+        private int deflection = 10;
 
 /**
 	 * Launch the application.
