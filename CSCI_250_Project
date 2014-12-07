@@ -24,6 +24,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Transparency;
 import java.awt.GraphicsConfiguration;
+import javax.swing.SpinnerNumberModel;
 
 public class vor {
 
