@@ -73,7 +73,7 @@ private void initialize() {
 		Desired.setFont(new Font("Tahoma", Font.BOLD, 30));
 		Desired.setBounds(223, 61, 123, 44);
 		frame.getContentPane().add(Desired);
-		Desired.setColumns(12);
+		Desired.setColumns(10);
 		
 		JSpinner ActualVspinner = new JSpinner();
 		ActualVspinner.setFont(new Font("Tahoma", Font.BOLD, 30));
