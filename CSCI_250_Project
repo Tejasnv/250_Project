@@ -70,7 +70,7 @@ private void initialize() {
 		Desired = new JTextField();
 		Desired.setText("0");
 		Desired.setHorizontalAlignment(SwingConstants.RIGHT);
-		Desired.setFont(new Font("Tahoma", Font.BOLD, 30));
+		Desired.setFont(new Font("Arial", Font.BOLD, 30));
 		Desired.setBounds(223, 61, 123, 44);
 		frame.getContentPane().add(Desired);
 		Desired.setColumns(10);
