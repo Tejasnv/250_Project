@@ -245,7 +245,7 @@ private void initialize() {
             Graphics2D g2d = (Graphics2D) g.create();
             Graphics2D g3d = (Graphics2D) g.create();
             
-            g2d.setColor(Color.RED);
+            g2d.setColor(Color.YELLOW);
             g2d.drawLine(getWidth() / 2, 0, getWidth() / 2, getHeight());
             g2d.drawLine(143, 160, 143, getHeight()/3);
             g2d.drawLine(126, 160, 126, getHeight()/3);
