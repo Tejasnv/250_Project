@@ -266,7 +266,6 @@ private void initialize() {
             g3.rotate(Math.toRadians((deflection-5)*2), bi.getWidth(), bi.getHeight()*2);
             g3.drawImage(bi2, (bi.getWidth() / 2),  -50, 4,1000,this);
 //          g3.rotate(Math.toRadians((deflection-5)*5));
-//          g3.drawImage(bi2, (bi.getWidth() / 2)-4, 0, 6,1000,this);
         }
     }
 }
