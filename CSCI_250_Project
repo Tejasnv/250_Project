@@ -62,7 +62,7 @@ public class vor {
 
 private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 410, 381);
+		frame.setBounds(100, 100, 413, 381);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setBackground(Color.RED);
