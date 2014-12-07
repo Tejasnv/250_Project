@@ -36,7 +36,7 @@ public class vor {
 	private JTextField Ans;
 	private JTextField Direction;
         private int deflection = 5;
-//        private JSpinner spinner;
+
 //	private JNumberField spinner;
 
 
