@@ -238,6 +238,7 @@ private void initialize() {
             return new Dimension(bi.getWidth(), bi.getHeight());
         } 
 
+//Graphics for VOR diel//
         @Override
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
