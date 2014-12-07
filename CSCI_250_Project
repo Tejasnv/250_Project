@@ -240,7 +240,7 @@ private void initialize() {
             super.paintComponent(g);
             Graphics2D g2 = (Graphics2D) g;
             g2.rotate(Math.toRadians(dialAngle), bi.getWidth() / 2, bi.getHeight() / 2);
-            g2.drawImage(bi, 0, 0, 0);
+            g2.drawImage(bi, 0, 0, null);
             
             Graphics2D g2d = (Graphics2D) g.create();
             Graphics2D g3d = (Graphics2D) g.create();
