@@ -121,7 +121,7 @@ private void initialize() {
 						if(Answer > 180)
 						{
 							Answer = 360-Answer;
-							turnDirection = "Right";
+							turnDirection = "Left";
 						}
 						else
 						{
