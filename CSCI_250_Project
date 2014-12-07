@@ -186,7 +186,7 @@ private void initialize() {
 			}
 		});
 		
-		set.setBounds(223, 263, 123, 40);
+		set.setBounds(223, 263, 123, 48);
 		frame.getContentPane().add(set);
 		
 		JLabel lblDirection = new JLabel("Direction");
