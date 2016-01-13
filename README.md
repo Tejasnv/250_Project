@@ -1,4 +1,4 @@
-250_Project
+VOR Simulator (250_Project)
 ===========
 
 Designing and implemeting VHF Omni Directional Radio Range (VOR) using java.
