@@ -1,4 +1,4 @@
-Designing and implemeting VHF Omni Directional Radio Range (VOR) using java.
+Designing and implementing VHF Omni Directional Radio Range (VOR) using java.
 Background : VOR is a type of radio beacon that provides directional information.
 these signals are continuesly transmitted by Ground unit are read by VOR receiver in plane. 
 With reference to these signal and current position of plane pilote determines if the curret 
